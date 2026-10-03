@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رحلة في الأدب الأندلسي</title>
+
+<style>
+/* =========================
+   التصميم العام
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Tahoma, sans-serif;
+    color: #38251b;
+
+    background:
+        radial-gradient(circle at 10% 15%, #d8a91b33 2px, transparent 3px),
+        radial-gradient(circle at 90% 80%, #8f171733 2px, transparent 3px),
+        #f8efd9;
+}
+
+/* زخارف جانبية */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 170px;
+    height: 170px;
+    border: 12px solid #c79a19;
+    transform: rotate(45deg);
+    opacity: 0.12;
+    z-index: -1;
+}
+
+body::before {
+    top: -90px;
+    right: -90px;
+}
+
+body::after {
+    bottom: -90px;
+    left: -90px;
+}
+
+/* =========================
+   الصفحة الرئيسية
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.hero-box {
+    width: min(950px, 95%);
+    padding: 60px 25px;
+
+    background: #fffdf5;
+
+    border: 3px solid #c79a19;
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px #5c321c22,
+        inset 0 0 0 8px #fff8e7;
+}
+
+.logo {
+    display: inline-block;
+
+    padding: 10px 25px;
+
+    color: white;
+    background: #941919;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+}
+
+h1 {
+    margin: 25px 0 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(42px, 8vw, 75px);
+
+    color: #941919;
+}
+
+.hero p {
+    max-width: 700px;
+
+    margin: 20px auto;
+
+    line-height: 2;
+
+    font-size: 19px;
+}
+
+/* =========================
+   الأزرار
+========================= */
+
+button {
+    font-family: inherit;
+}
+
+.main-button {
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #941919;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 0 #641010;
+
+    transition: 0.2s;
+}
+
+.main-button:hover {
+    transform: translateY(-3px);
+}
+
+.gold-button {
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #e5c15a;
+    color: #54100e;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* =========================
+   المحتوى
+========================= */
+
+.container {
+    width: min(1100px, 94%);
+
+    margin: auto;
+
+    padding-bottom: 80px;
+}
+
+/* الشريط العلوي */
+
+.top-bar {
+    position: sticky;
+    top: 10px;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 18px;
+
+    background: #fffdf5ee;
+
+    border: 1px solid #c79a1966;
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow: 0 8px 25px #4c281411;
+}
+
+.score {
+    color: #941919;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.progress {
+    flex: 1;
+
+    max-width: 400px;
+
+    height: 9px;
+
+    background: #eadfc7;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #d6aa20,
+        #941919
+    );
+
+    transition: 0.4s;
+}
+
+/* =========================
+   الأقسام
+========================= */
+
+section {
+    margin-top: 65px;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    color: #941919;
+
+    font-size: 38px;
+}
+
+.section-title p {
+    color: #806d5d;
+}
+
+/* =========================
+   البطاقات
+========================= */
+
+.card {
+    position: relative;
+
+    padding: 25px;
+
+    background: #fffdf5;
+
+    border: 1px solid #dfcda5;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px #542d1410;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 70px;
+    height: 5px;
+
+    background: #c79a19;
+}
+
+.card h3 {
+    color: #941919;
+}
+
+/* =========================
+   خريطة المراحل
+========================= */
+
+.timeline {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 18px;
+}
+
+.era {
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.era:hover {
+    transform: translateY(-5px);
+
+    border-color: #c79a19;
+}
+
+.era-number {
+    font-size: 35px;
+
+    color: #c79a19;
+
+    font-weight: bold;
+}
+
+/* =========================
+   الأسئلة
+========================= */
+
+.options {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.option {
+    padding: 16px;
+
+    border: 2px solid #eadfc7;
+
+    background: white;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    text-align: right;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.option:hover {
+    border-color: #c79a19;
+
+    background: #fff9e8;
+}
+
+.option.correct {
+    background: #e2f4e7;
+
+    border-color: #3c8c59;
+}
+
+.option.wrong {
+    background: #f8e2df;
+
+    border-color: #b4433b;
+}
+
+.feedback {
+    min-height: 30px;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+}
+
+/* =========================
+   لعبة المطابقة
+========================= */
+
+.match-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.match-item {
+    margin: 10px 0;
+
+    padding: 15px;
+
+    border: 2px dashed #d8c398;
+
+    border-radius: 12px;
+
+    background: white;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+.match-item.selected {
+    border-color: #941919;
+
+    background: #fff0d4;
+}
+
+.match-item.done {
+    background: #e2f4e7;
+
+    border-color: #3c8c59;
+
+    cursor: default;
+}
+
+/* =========================
+   النتيجة
+========================= */
+
+.final-box {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d1111,
+            #a51b1b
+        );
+
+    border-radius: 30px;
+
+    box-shadow: 0 20px 50px #6d111133;
+}
+
+.final-box h2 {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    margin: 0;
+}
+
+.final-score {
+    font-size: 65px;
+
+    color: #ffe29b;
+
+    font-weight: bold;
+}
+
+/* =========================
+   تجاوب الجوال
+========================= */
+
+@media (max-width: 650px) {
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .match-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        flex-wrap: wrap;
+    }
+
+    .progress {
+        order: 3;
+
+        flex-basis: 100%;
+
+        max-width: none;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     الصفحة الرئيسية
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-box">
+
+        <div class="logo">
+            ✦ لعبة تعليمية ✦
+        </div>
+
+        <h1>
+            رحلة في الأدب الأندلسي
+        </h1>
+
+        <p>
+            خوضي رحلة ممتعة بين محطات الأدب الأندلسي،
+            واكتشفي مراحل الحكم، وملامح التقليد والتجديد،
+            وموضوعات الشعر الأندلسي.
+        </p>
+
+        <button
+            class="main-button"
+            onclick="startGame()">
+
+            ابدئي الرحلة ✦
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+<!-- =========================
+     الشريط
+========================= -->
+
+<div class="top-bar">
+
+    <div class="score">
+        النقاط:
+        <span id="score">0</span>
+    </div>
+
+    <div class="progress">
+        <div
+            id="progressBar"
+            class="progress-bar">
+        </div>
+    </div>
+
+    <div id="stage">
+        المحطة الأولى
+    </div>
+
+</div>
+
+
+<!-- =========================
+     مراحل الحكم
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+    🏛️ خريطة الأندلس
+</h2>
+
+<p>
+    اضغطي على إحدى المحطات لمعرفة الفكرة الأساسية.
+</p>
+
+</div>
+
+
+<div
+    id="timeline"
+    class="timeline">
+</div>
+
+</section>
+
+
+<!-- =========================
+     الأسئلة
+========================= -->
+
+<section id="questions">
+
+<div class="section-title">
+
+<h2>
+    📜 تحدي المعرفة
+</h2>
+
+<p>
+    اختاري الإجابة الصحيحة.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div id="quiz"></div>
+
+<div
+    id="feedback"
+    class="feedback">
+</div>
+
+<button
+    id="nextButton"
+    class="gold-button"
+    onclick="nextQuestion()"
+    style="display:none">
+
+    السؤال التالي ←
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     التقليد والتجديد
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+    ⚔️ التقليد أم التجديد؟
+</h2>
+
+<p>
+    هل تعرفين الفرق بين طريقة العرب وطريقة المحدثين؟
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    صنّفي العبارات
+</h3>
+
+<p>
+    اضغطي على العبارة ثم اختاري هل هي
+    <b>تقليد</b> أم <b>تجديد</b>.
+</p>
+
+<div
+    id="sortingGame"
+    class="options">
+</div>
+
+<div
+    id="sortFeedback"
+    class="feedback">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     المطابقة
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+    🧩 طابقي المصطلحات
+</h2>
+
+<p>
+    اختاري المصطلح ثم اضغطي على معناه الصحيح.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="match-grid">
+
+<div id="terms"></div>
+
+<div id="definitions"></div>
+
+</div>
+
+<div
+    id="matchFeedback"
+    class="feedback">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     الاختبار النهائي
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+    👑 بوابة الأندلس
+</h2>
+
+<p>
+    اختبارك الأخير قبل الحصول على الختم الأندلسي.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div id="finalQuiz"></div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     النتيجة
+========================= -->
+
+<section>
+
+<div class="final-box">
+
+<h2>
+    الختم الأندلسي
+</h2>
+
+<div
+    id="finalScore"
+    class="final-score">
+
+    0
+
+</div>
+
+<p>
+    نقطة
+</p>
+
+<p id="finalMessage">
+    أكملي التحديات لفتح الختم.
+</p>
+
+<button
+    class="gold-button"
+    onclick="restartGame()">
+
+    إعادة اللعبة ↻
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   بيانات مراحل الحكم في الأندلس
+===================================================== */
+
+const eras = [
+
+{
+    name: "عصر الولاة",
+    text: "البداية الأولى للحكم الإسلامي في الأندلس."
+},
+
+{
+    name: "الدولة الأموية",
+    text: "مرحلة ترسخ الحكم الأموي وازدهار الحياة الأدبية."
+},
+
+{
+    name: "ملوك الطوائف",
+    text: "مرحلة تعدد الإمارات وازدهار المجالس الأدبية."
+},
+
+{
+    name: "دولة المرابطين",
+    text: "مرحلة من مراحل الحكم في الأندلس."
+},
+
+{
+    name: "دولة الموحدين",
+    text: "مرحلة تالية من مراحل الحكم الأندلسي."
+},
+
+{
+    name: "دولة بني الأحمر",
+    text: "آخر مراحل الحكم الكبرى في الأندلس."
+}
+
+];
+
+
+/* =====================================================
+   أسئلة الدرس
+===================================================== */
+
+const questions = [
+
+{
+    question:
+        "ما المراحل التي مر بها الحكم في الأندلس؟",
+
+    answers: [
+
+        "عصر الولاة ثم الدولة الأموية ثم ملوك الطوائف ثم المرابطون ثم الموحدون ثم بنو الأحمر",
+
+        "الدولة الأموية ثم العباسيون ثم العثمانيون",
+
+        "المرابطون ثم الرومان ثم بنو الأحمر"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "بماذا ظل الأدب الأندلسي في بدايته متأثرًا؟",
+
+    answers: [
+
+        "بالأدب في المشرق",
+
+        "بالأدب الأوروبي الحديث",
+
+        "بالأدب الفارسي فقط"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "أي موضوع يرتبط بالتجديد في الشعر الأندلسي؟",
+
+    answers: [
+
+        "وصف الطبيعة والموشحات",
+
+        "المدح والفخر فقط",
+
+        "تقليد أسماء المدن"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "ما المقصود بالتجديد في الشعر الأندلسي؟",
+
+    answers: [
+
+        "ظهور الموشحات والاهتمام بموضوعات متجددة",
+
+        "إلغاء الشعر",
+
+        "الابتعاد عن البيئة الأندلسية"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "أي مما يأتي من أبعاد الشعر الأندلسي؟",
+
+    answers: [
+
+        "مجالس المؤدبين ومجالس الغناء والبيئة الثقافية",
+
+        "الحروب والأسواق فقط",
+
+        "الرحلات البحرية فقط"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "أي موضوع من موضوعات الشعر الأندلسي المذكورة في الدرس؟",
+
+    answers: [
+
+        "الزهد",
+
+        "الرياضيات",
+
+        "التجارة فقط"
+
+    ],
+
+    correct: 0
+}
+
+];
+
+
+/* =====================================================
+   المتغيرات
+===================================================== */
+
+let score = 0;
+
+let questionIndex = 0;
+
+let questionAnswered = false;
+
+let selectedTerm = null;
+
+let matchedCount = 0;
+
+let finalIndex = 0;
+
+let finalAnswered = false;
+
+
+/* =====================================================
+   عناصر الصفحة
+===================================================== */
+
+const scoreElement =
+    document.getElementById("score");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const quizElement =
+    document.getElementById("quiz");
+
+const feedbackElement =
+    document.getElementById("feedback");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+
+/* =====================================================
+   عرض مراحل الحكم
+===================================================== */
+
+function showEras() {
+
+    const timeline =
+        document.getElementById("timeline");
+
+    timeline.innerHTML = "";
+
+    eras.forEach((era, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card era";
+
+        card.innerHTML = `
+
+            <div class="era-number">
+                ${index + 1}
+            </div>
+
+            <h3>
+                ${era.name}
+            </h3>
+
+            <p>
+                ${era.text}
+            </p>
+
+        `;
+
+        card.onclick = function () {
+
+            alert(
+                era.name +
+                "\n\n" +
+                era.text
+            );
+
+        };
+
+        timeline.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   عرض السؤال
+===================================================== */
+
+function showQuestion() {
+
+    const question =
+        questions[questionIndex];
+
+    questionAnswered = false;
+
+    feedbackElement.innerHTML = "";
+
+    nextButton.style.display = "none";
+
+    quizElement.innerHTML = `
+
+        <h3>
+            ${questionIndex + 1}.
+            ${question.question}
+        </h3>
+
+        <div class="options">
+
+            ${question.answers.map(
+                (answer, index) => `
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(${index})">
+
+                    ${answer}
+
+                </button>
+
+            `).join("")}
+
+        </div>
+
+    `;
+
+    updateProgress();
+
+}
+
+
+/* =====================================================
+   الإجابة عن السؤال
+===================================================== */
+
+function answerQuestion(answerIndex) {
+
+    if (questionAnswered) {
+        return;
+    }
+
+    questionAnswered = true;
+
+    const question =
+        questions[questionIndex];
+
+    const options =
+        document.querySelectorAll(
+            "#quiz .option"
+        );
+
+    options[
+        question.correct
+    ].classList.add("correct");
+
+
+    if (
+        answerIndex ===
+        question.correct
+    ) {
+
+        score += 10;
+
+        feedbackElement.innerHTML =
+            "✨ أحسنت! إجابة صحيحة +10 نقاط";
+
+    } else {
+
+        options[
+            answerIndex
+        ].classList.add("wrong");
+
+        feedbackElement.innerHTML =
+            "حاولي مرة أخرى في السؤال القادم 🌿";
+
+    }
+
+    nextButton.style.display =
+        "inline-block";
+
+    updateScore();
+
+}
+
+
+/* =====================================================
+   السؤال التالي
+===================================================== */
+
+function nextQuestion() {
+
+    questionIndex++;
+
+    if (
+        questionIndex >=
+        questions.length
+    ) {
+
+        questionIndex = 0;
+
+        alert(
+            "أكملتِ تحدي المعرفة! 🌟"
+        );
+
+    }
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   لعبة التقليد والتجديد
+===================================================== */
+
+const sortingItems = [
+
+{
+    text: "وصف الطبيعة",
+    answer: "تجديد"
+},
+
+{
+    text: "المدح",
+    answer: "تقليد"
+},
+
+{
+    text: "الفخر",
+    answer: "تقليد"
+},
+
+{
+    text: "الموشحات",
+    answer: "تجديد"
+},
+
+{
+    text: "تقليد أدب المشرق",
+    answer: "تقليد"
+}
+
+];
+
+
+function createSortingGame() {
+
+    const game =
+        document.getElementById(
+            "sortingGame"
+        );
+
+    game.innerHTML = "";
+
+    sortingItems.forEach(
+        (item, index) => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.className =
+                "option";
+
+            button.innerHTML =
+                item.text;
+
+            button.onclick =
+                function () {
+
+                    const answer =
+                        prompt(
+                            "اكتبي: تقليد أو تجديد"
+                        );
+
+                    if (!answer) {
+                        return;
+                    }
+
+                    if (
+                        answer.trim() ===
+                        item.answer
+                    ) {
+
+                        button.classList.add(
+                            "correct"
+                        );
+
+                        button.disabled =
+                            true;
+
+                        score += 5;
+
+                        document.getElementById(
+                            "sortFeedback"
+                        ).innerHTML =
+                            "صحيح! +5 نقاط ✨";
+
+                        updateScore();
+
+                    } else {
+
+                        document.getElementById(
+                            "sortFeedback"
+                        ).innerHTML =
+                            "ليست صحيحة، فكري في الفرق بين التقليد والتجديد.";
+
+                    }
+
+                };
+
+            game.appendChild(button);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   لعبة المطابقة
+===================================================== */
+
+const pairs = [
+
+{
+    term: "التقليد",
+    definition:
+        "اتباع أدب المشرق وتقليد أسماء المدن والشعراء"
+},
+
+{
+    term: "الموشحات",
+    definition:
+        "قصائد مغناة ظهرت مع التجديد"
+},
+
+{
+    term: "وصف الطبيعة",
+    definition:
+        "موضوع متجدد اهتم به الشعراء"
+},
+
+{
+    term: "مجالس الغناء",
+    definition:
+        "أحد أبعاد الشعر الأندلسي"
+}
+
+];
+
+
+function createMatchingGame() {
+
+    const terms =
+        document.getElementById(
+            "terms"
+        );
+
+    const definitions =
+        document.getElementById(
+            "definitions"
+        );
+
+    terms.innerHTML = "";
+
+    definitions.innerHTML = "";
+
+    pairs.forEach(
+        (pair, index) => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "match-item";
+
+            item.dataset.index =
+                index;
+
+            item.innerHTML =
+                pair.term;
+
+            item.onclick =
+                function () {
+
+                    if (
+                        item.classList.contains(
+                            "done"
+                        )
+                    ) {
+                        return;
+                    }
+
+                    selectedTerm =
+                        index;
+
+                    document
+                        .querySelectorAll(
+                            "#terms .match-item"
+                        )
+                        .forEach(
+                            element =>
+                                element.classList.remove(
+                                    "selected"
+                                )
+                        );
+
+                    item.classList.add(
+                        "selected"
+                    );
+
+                };
+
+            terms.appendChild(item);
+
+        }
+    );
+
+
+    const shuffled =
+        [...pairs]
+        .map(
+            (pair, index) => ({
+                ...pair,
+                index
+            })
+        )
+        .sort(
+            () => Math.random() - 0.5
+        );
+
+
+    shuffled.forEach(
+        pair => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "match-item";
+
+            item.dataset.index =
+                pair.index;
+
+            item.innerHTML =
+                pair.definition;
+
+            item.onclick =
+                function () {
+
+                    if (
+                        selectedTerm === null
+                    ) {
+                        return;
+                    }
+
+                    if (
+                        selectedTerm ===
+                        pair.index
+                    ) {
+
+                        item.classList.add(
+                            "done"
+                        );
+
+                        const term =
+                            document.querySelector(
+                                `#terms .match-item[data-index="${pair.index}"]`
+                            );
+
+                        term.classList.add(
+                            "done"
+                        );
+
+                        score += 5;
+
+                        matchedCount++;
+
+                        document.getElementById(
+                            "matchFeedback"
+                        ).innerHTML =
+                            "مطابقة صحيحة! +5 نقاط ✨";
+
+                        if (
+                            matchedCount ===
+                            pairs.length
+                        ) {
+
+                            document.getElementById(
+                                "matchFeedback"
+                            ).innerHTML =
+                                "🎉 ممتاز! أكملتِ جميع المطابقات.";
+
+                        }
+
+                        updateScore();
+
+                    } else {
+
+                        document.getElementById(
+                            "matchFeedback"
+                        ).innerHTML =
+                            "هذه ليست المطابقة الصحيحة.";
+
+                    }
+
+                    selectedTerm =
+                        null;
+
+                };
+
+            definitions.appendChild(item);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   الاختبار النهائي
+===================================================== */
+
+const finalQuestions = [
+
+{
+    question:
+        "كيف تطور الأدب الأندلسي؟",
+
+    answers: [
+
+        "ظل مقلدًا ثم استقل تدريجيًا بعدد من الخصائص",
+
+        "بقي مطابقًا تمامًا للمشرق",
+
+        "توقف عن التطور"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "ما من ملامح التقليد؟",
+
+    answers: [
+
+        "تقليد أدب المشرق",
+
+        "ظهور الموشحات",
+
+        "وصف الطبيعة فقط"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "ما من ملامح التجديد؟",
+
+    answers: [
+
+        "ظهور الموشحات",
+
+        "تقليد أسماء المدن",
+
+        "المدح والفخر فقط"
+
+    ],
+
+    correct: 0
+},
+
+{
+    question:
+        "أي مما يأتي من أبعاد الشعر الأندلسي؟",
+
+    answers: [
+
+        "مجالس المؤدبين ومجالس الغناء والبيئة الثقافية",
+
+        "الحروب فقط",
+
+        "التجارة فقط"
+
+    ],
+
+    correct: 0
+}
+
+];
+
+
+function showFinalQuestion() {
+
+    const question =
+        finalQuestions[finalIndex];
+
+    finalAnswered = false;
+
+    document.getElementById(
+        "finalQuiz"
+    ).innerHTML = `
+
+        <h3>
+            ${finalIndex + 1}.
+            ${question.question}
+        </h3>
+
+        <div class="options">
+
+            ${question.answers.map(
+                (answer, index) => `
+
+                <button
+                    class="option"
+                    onclick="answerFinal(${index})">
+
+                    ${answer}
+
+                </button>
+
+            `).join("")}
+
+        </div>
+
+        <div
+            id="finalFeedback"
+            class="feedback">
+        </div>
+
+    `;
+
+}
+
+
+function answerFinal(index) {
+
+    if (finalAnswered) {
+        return;
+    }
+
+    finalAnswered = true;
+
+    const question =
+        finalQuestions[finalIndex];
+
+    const options =
+        document.querySelectorAll(
+            "#finalQuiz .option"
+        );
+
+    options[
+        question.correct
+    ].classList.add("correct");
+
+
+    if (
+        index ===
+        question.correct
+    ) {
+
+        score += 10;
+
+        document.getElementById(
+            "finalFeedback"
+        ).innerHTML =
+            "إجابة صحيحة! +10 نقاط 🌟";
+
+    } else {
+
+        options[index].classList.add(
+            "wrong"
+        );
+
+        document.getElementById(
+            "finalFeedback"
+        ).innerHTML =
+            "الإجابة الصحيحة باللون الأخضر.";
+
+    }
+
+    updateScore();
+
+
+    setTimeout(
+        function () {
+
+            finalIndex++;
+
+            if (
+                finalIndex >=
+                finalQuestions.length
+            ) {
+
+                finalIndex = 0;
+
+                alert(
+                    "انتهى الاختبار النهائي! 👑"
+                );
+
+            }
+
+            showFinalQuestion();
+
+        },
+        1000
+    );
+
+}
+
+
+/* =====================================================
+   تحديث النقاط
+===================================================== */
+
+function updateScore() {
+
+    scoreElement.innerHTML =
+        score;
+
+    document.getElementById(
+        "finalScore"
+    ).innerHTML =
+        score;
+
+
+    const maxScore =
+        questions.length * 10 +
+        sortingItems.length * 5 +
+        pairs.length * 5 +
+        finalQuestions.length * 10;
+
+
+    const percentage =
+        Math.min(
+            100,
+            (score / maxScore) * 100
+        );
+
+
+    progressBar.style.width =
+        percentage + "%";
+
+
+    if (score >= 80) {
+
+        document.getElementById(
+            "finalMessage"
+        ).innerHTML =
+            "🏆 فتحتِ الختم الأندلسي! أحسنتِ، لقد أتقنتِ الدرس.";
+
+    } else if (score >= 45) {
+
+        document.getElementById(
+            "finalMessage"
+        ).innerHTML =
+            "✨ رحلتك ممتازة! واصلي التحديات لفتح الختم.";
+
+    } else {
+
+        document.getElementById(
+            "finalMessage"
+        ).innerHTML =
+            "🌿 واصلي الرحلة، فكل إجابة تقربك من الختم.";
+
+    }
+
+}
+
+
+/* =====================================================
+   تحديث المحطة
+===================================================== */
+
+function updateProgress() {
+
+    const percentage =
+        (
+            questionIndex /
+            questions.length
+        ) * 35;
+
+    progressBar.style.width =
+        percentage + "%";
+
+}
+
+
+/* =====================================================
+   زر بدء اللعبة
+===================================================== */
+
+function startGame() {
+
+    document.getElementById(
+        "questions"
+    ).scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   إعادة اللعبة
+===================================================== */
+
+function restartGame() {
+
+    score = 0;
+
+    questionIndex = 0;
+
+    questionAnswered = false;
+
+    selectedTerm = null;
+
+    matchedCount = 0;
+
+    finalIndex = 0;
+
+    finalAnswered = false;
+
+    createSortingGame();
+
+    createMatchingGame();
+
+    showQuestion();
+
+    showFinalQuestion();
+
+    updateScore();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   تشغيل الموقع
+===================================================== */
+
+showEras();
+
+showQuestion();
+
+createSortingGame();
+
+createMatchingGame();
+
+showFinalQuestion();
+
+updateScore();
+
+</script>
+
+</body>
+</html>
